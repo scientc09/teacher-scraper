@@ -22,4 +22,8 @@ app.get('/scrape', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+// Health-check / fallback route
+app.get('/', (req, res) => {
+  res.send('Teacher-scraper server is live. Use /scrape?url=...');
+});
 app.listen(PORT, () => console.log(`Scraper on ${PORT}`));
